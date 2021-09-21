@@ -8,19 +8,16 @@ import Comments from "../components/comments/Comments";
 const QuoteDetails = () => {
   const params = useParams();
   const quote = dummyQuotes.find((quote) => quote.id === params.quoteId);
-  let limeLight;
-  if (quote) {
-    limeLight = (
-      <Fragment>
-        <HighlightedQuote author={quote.author} text={quote.text} />
-        <Route path="/quotes/:quoteId/comments">
-          <Comments />
-        </Route>
-      </Fragment>
-    );
-  } else {
-    limeLight = <NoQuotesFound />;
+  if (!quote) {
+    return <NoQuotesFound />;
   }
-  return <Fragment>{limeLight}</Fragment>;
+  return (
+    <Fragment>
+      <HighlightedQuote author={quote.author} text={quote.text} />
+      <Route path="/quotes/:quoteId/comments">
+        <Comments />
+      </Route>
+    </Fragment>
+  );
 };
 export default QuoteDetails;
