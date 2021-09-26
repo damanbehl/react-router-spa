@@ -1,5 +1,5 @@
 const FIREBASE_DOMAIN =
-  "https://react-router-e36d6-default-rtdb.firebaseio.com";
+  "DUMMY";
 
 export async function getAllQuotes() {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
