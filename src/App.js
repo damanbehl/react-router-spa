@@ -13,7 +13,9 @@ function App() {
         <Routes>
           {/* <Route path="/" exact element={<Navigate replace to="/welcome" />} /> */}
           <Route path="/" exact element={<Navigate to="/welcome" />} />
-          <Route path="/welcome/*" element={<Welcome />} />
+          <Route path="/welcome/*" element={<Welcome />}>
+            <Route path="new-user" element={<p>Welcome, new user!</p>} />
+          </Route>
           <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetail />} />
         </Routes>
